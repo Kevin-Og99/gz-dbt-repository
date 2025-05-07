@@ -19,14 +19,16 @@ sources:
            - name: quantity
              description: the quantity of products purchased for a given order
          tests:
-           - unique:
-              column_name: "(orders_id || '-' || pdt_id)"
+            - unique:
+                column_name: "(orders_id || '-' || pdt_id)"
+
        - name: product
          identifier: raw_gz_product
          description: produst of Greenweez
          columns:
            - name: products_id
              description: Primary key
+             tests:
               - unique
               - not_null
            - name: purchase_price
@@ -38,6 +40,7 @@ sources:
          columns:
            - name: orders_id
              description: Primary key
+             tests:
               - unique
               - not_null  
            - name: shipping_fee
@@ -46,3 +49,4 @@ sources:
              description: the cost of preparing the parcel in the distribution centre/warehouse
            - name: ship_cost
              description: shipping cost paid by Greenweez to the carrier/logistics provider
+
